@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -8,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<base href="<%=basePath%>">
  <title>SpringMVC 博客管理</title>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -25,7 +29,7 @@
     <h1>SpringMVC 博客系统-博客管理</h1>
     <hr/>
 
-    <h3>所有博客 <a href="blogs/add" type="button" class="btn btn-primary btn-sm">添加</a></h3>
+    <h3>所有博客 <a href="admin/blogs/add" type="button" class="btn btn-primary btn-sm">添加</a></h3>
 
     <!-- 如果用户列表为空 -->
  <c:if test="${empty blogList}">
@@ -52,9 +56,9 @@
                     <td>${blog.user.nickname}, ${blog.user.firstName} ${blog.user.lastName}</td>
                     <td><fmt:formatDate value="${blog.pubDate }" pattern="yyyy-MM-dd"/></td>
                     <td>
-                        <a href="blogs/show/${blog.id}" type="button" class="btn btn-sm btn-success">详情</a>
-                        <a href="blogs/update/${blog.id}" type="button" class="btn btn-sm btn-warning">修改</a>
-                        <a href="blogs/delete/${blog.id}" type="button" class="btn btn-sm btn-danger">删除</a>
+                        <a href="admin/blogs/show/${blog.id}" type="button" class="btn btn-sm btn-success">详情</a>
+                        <a href="admin/blogs/update/${blog.id}" type="button" class="btn btn-sm btn-warning">修改</a>
+                        <a href="admin/blogs/delete/${blog.id}" type="button" class="btn btn-sm btn-danger">删除</a>
                     </td>
                 </tr>
             </c:forEach>

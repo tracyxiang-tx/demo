@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -7,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<base href="<%=basePath%>">
  <title>SpringMVC 用户管理</title>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -24,7 +28,7 @@
     <h1>SpringMVC 博客系统-用户管理</h1>
     <hr/>
 
-    <h3>所有用户 <a href="users/add" type="button" class="btn btn-primary btn-sm">添加</a></h3>
+    <h3>所有用户 <a href="admin/users/add" type="button" class="btn btn-primary btn-sm">添加</a></h3>
 
     <!-- 如果用户列表为空 -->
  <c:if test="${empty userList}">
@@ -51,9 +55,9 @@
                     <td>${user.firstName} ${user.lastName}</td>
                     <td>${user.password}</td>
                     <td>
-                        <a href="users/show/${user.id}" type="button" class="btn btn-sm btn-success">详情</a>
-                        <a href="users/update/${user.id}" type="button" class="btn btn-sm btn-warning">修改</a>
-                        <a href="users/delete/${user.id}" type="button" class="btn btn-sm btn-danger">删除</a>
+                        <a href="admin/users/show/${user.id}" type="button" class="btn btn-sm btn-success">详情</a>
+                        <a href="admin/users/update/${user.id}" type="button" class="btn btn-sm btn-warning">修改</a>
+                        <a href="admin/users/delete/${user.id}" type="button" class="btn btn-sm btn-danger">删除</a>
                     </td>
                 </tr>
             </c:forEach>

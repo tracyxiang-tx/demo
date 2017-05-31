@@ -2,6 +2,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,6 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<base href="<%=basePath%>">
 <title>SpringMVC 修改博客</title>
 
 <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -26,7 +30,7 @@
 	<div class="container">
 		<h1>SpringMVC 修改博客</h1>
 		<hr />
-		<form:form action="../updateBlog" method="post" commandName="blogP"
+		<form:form action="admin/blogs/updateBlog" method="post" commandName="blogP"
 			role="form">
 			<div class="form-group">
 				<label for="title">Title:</label> <input type="text"
