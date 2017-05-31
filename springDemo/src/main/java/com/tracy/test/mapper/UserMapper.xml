@@ -90,4 +90,11 @@
       last_name = #{lastName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+   <!-- ==============以下内容是根据自身业务扩展的内容======================= -->
+      <!-- select标签的id属性与UserMapper接口中定义的getAllUser方法要一模一样 -->
+  <select id="getAllUser" resultMap="BaseResultMap">
+  	select id,nickname, first_name, last_name, password from user
+  </select>
+  
 </mapper>

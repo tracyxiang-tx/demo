@@ -1,6 +1,10 @@
 package com.tracy.test.entity;
 
-import java.util.Date;
+import java.sql.Date;
+
+//import java.util.Date;
+
+
 
 public class Blog {
     private Integer id;
@@ -10,6 +14,8 @@ public class Blog {
     private String content;
 
     private Integer userId;
+    
+    private User user;
 
     private Date pubDate;
 
@@ -52,4 +58,14 @@ public class Blog {
     public void setPubDate(Date pubDate) {
         this.pubDate = pubDate;
     }
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+    
+    
 }

@@ -10,7 +10,7 @@ public class User {
     private String firstName;
 
     private String lastName;
-
+    
     public Integer getId() {
         return id;
     }
@@ -50,4 +50,6 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName == null ? null : lastName.trim();
     }
+
+    
 }

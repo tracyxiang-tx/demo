@@ -1,5 +1,7 @@
 package com.tracy.test.dao;
 
+import java.util.List;
+
 import com.tracy.test.entity.Blog;
 
 public interface BlogMapper {
@@ -14,4 +16,6 @@ public interface BlogMapper {
     int updateByPrimaryKeySelective(Blog record);
 
     int updateByPrimaryKey(Blog record);
+    
+    List<Blog> getAllBlog();
 }

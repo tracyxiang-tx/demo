@@ -1,5 +1,7 @@
 package com.tracy.test.service;
 
+import java.util.List;
+
 import com.tracy.test.entity.User;
 
 public interface UserServiceI {
@@ -18,4 +20,17 @@ public interface UserServiceI {
 	 * @param userId
 	 */
 	User getUserById(Integer userId);
+
+	/**
+	 * 获取所有用户信息
+	 * 
+	 * @return List<User>
+	 */
+	List<User> getAllUser();
+	
+	void deleteByPrimaryKey(Integer userId);
+	
+	User selectByPrimaryKey(Integer id);
+	
+	int updateByPrimaryKey(User record);
 }
