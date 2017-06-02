@@ -1,15 +1,12 @@
 package com.tracy.test.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +20,8 @@ import com.tracy.test.service.UserServiceI;
 
 @Controller
 public class BlogController {
-
+	
+	private static final Logger logger = LoggerFactory.getLogger("BlogController.class"); 
 
 	// 自动装配数据库接口，不需要再写原始的Connection来操作数据库
 	@Autowired
@@ -40,6 +38,9 @@ public class BlogController {
 
 		// 将所有记录传递给要返回的jsp页面，放在blogList当中
 		modelMap.addAttribute("blogList", blogList);
+		logger.debug("debug:显示全部博文");
+		logger.warn("warn:显示全部博文");
+		logger.error("error:显示全部博文");
 		
 		// 返回pages目录下的admin/blogs.jsp页面
 		return "admin/blogs";
