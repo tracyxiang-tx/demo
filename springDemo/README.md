@@ -1,5 +1,5 @@
 ### 参考教程：
-    https://my.oschina.net/gaussik/blog
+## https://my.oschina.net/gaussik/blog
 
 #### 一.新建maven web项目
 #### 二.Spring MVC框架配置
