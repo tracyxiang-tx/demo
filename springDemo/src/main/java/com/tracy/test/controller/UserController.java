@@ -5,6 +5,8 @@ import java.util.List;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,6 +25,7 @@ import com.tracy.test.service.UserServiceI;
 @Controller
 public class UserController {
 
+	private static final Logger logger = LoggerFactory.getLogger("UserController.class"); 
 
 	// 自动装配数据库接口，不需要再写原始的Connection来操作数据库
 	@Autowired
@@ -33,7 +36,7 @@ public class UserController {
 		// 查询user表中所有记录
 		// 获取所有的用户信息
 		List<User> userList = userService.getAllUser();
-
+		logger.warn("warn:查询数据库");
 		// 将所有记录传递给要返回的jsp页面，放在userList当中
 		modelMap.addAttribute("userList", userList);
 

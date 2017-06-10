@@ -1,6 +1,10 @@
 package com.tracy.test.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
+	private static final long serialVersionUID = 1332643889208978231L;
+
     private Integer id;
 
     private String nickname;

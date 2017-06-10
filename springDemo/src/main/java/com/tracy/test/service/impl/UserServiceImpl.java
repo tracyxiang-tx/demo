@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.cache.annotation.CacheEvict;  
+import org.springframework.cache.annotation.Cacheable;
 
 import com.tracy.test.dao.UserMapper;
 import com.tracy.test.entity.User;
@@ -22,19 +24,22 @@ public class UserServiceImpl implements UserServiceI {
 	 */
 	@Autowired
 	private UserMapper userMapper;// 注入dao
-
+	
+	@CacheEvict(value = { "addUser"}, allEntries = true)  
 	public void addUser(User user) {
 		userMapper.insert(user);
 	}
-
+	
+	@Cacheable("getUserById")  
 	public User getUserById(Integer userId) {
 		return userMapper.selectByPrimaryKey(userId);
 	}
-
+	
+	@Cacheable("getAllUser")
 	public List<User> getAllUser() {
 		return userMapper.getAllUser();
 	}
-	
+	@CacheEvict(value = { "getAllUser", "getUserById" }, allEntries = true) 
 	public void deleteByPrimaryKey(Integer userId) {
 		userMapper.deleteByPrimaryKey(userId);
 	}
@@ -43,6 +48,7 @@ public class UserServiceImpl implements UserServiceI {
 		return userMapper.selectByPrimaryKey(userId);
 	}
 	
+	@CacheEvict(value = { "getAllUser", "getUserById" }, allEntries = true) 
 	public int updateByPrimaryKey(User user) {
 		return userMapper.updateByPrimaryKey(user);
 	}
