@@ -1,2 +1,6 @@
 springDemo/target/
 wechatDemo/target/
+ajaxSearchPrompt/target
+*/.settings
+*/.mymetadata
+*/.project
