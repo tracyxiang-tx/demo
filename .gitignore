@@ -1,6 +1,4 @@
-springDemo/target/
-wechatDemo/target/
-ajaxSearchPrompt/target
+*/target
 */.settings
 */.mymetadata
 */.project
